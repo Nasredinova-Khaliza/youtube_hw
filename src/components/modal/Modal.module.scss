@@ -1,0 +1,74 @@
+.Modal {
+	height: 100vh;
+	width: 100vw;
+	background-color: rgba(255, 255, 255, 0.432);
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transform: scale(1);
+	transition: all 0.3s ease-in-out;
+
+	.modalWrapper {
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		min-height: 100%;
+
+		.modalContent {
+			position: relative;
+			width: 100%;
+			margin: 20px;
+			max-width: 600px;
+			border-radius: 20px;
+			background-color: silver;
+			padding: 40px 20px 20px 20px;
+			transform: translateY(-50px);
+			transition: opacity 0.3s, transform 0.3s;
+			border: 2px solid black;
+
+			.modalCloseBtn {
+				position: absolute;
+				top: 20px;
+				right: 20px;
+				width: 50px;
+				height: 40px;
+				cursor: pointer;
+				border-radius: 12px;
+				color: black;
+				font-size: 15px;
+				font-weight: bold;
+				background-color: transparent;
+			}
+		}
+	}
+}
+
+// !OPEN
+.Modal--entering,
+.Modal--entered {
+	opacity: 1;
+}
+
+.Modal--entering .ModalContent,
+.Modal--entered .ModalContent {
+	transform: translateY(0);
+}
+
+//!CLOSE
+
+.Modal--exiting,
+.Modal--exited {
+	opacity: 0;
+}
+
+.Modal--exiting.ModalContent,
+.Modal--exited.ModalContent {
+	transform: translateY(-50px);
+}
